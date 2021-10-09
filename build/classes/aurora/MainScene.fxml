@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aurora.MainSceneController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1200.0">
+        <menus>
+          <Menu fx:id="mainMenu" mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="newOption" mnemonicParsing="false" onAction="#newFile" text="New" />
+                  <MenuItem fx:id="openOption" mnemonicParsing="false" onAction="#openFile" text="Open" />
+              <MenuItem fx:id="saveOption" mnemonicParsing="false" onAction="#saveFile" text="Save" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutOption" mnemonicParsing="false" onAction="#showAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox alignment="CENTER_LEFT" layoutY="27.0" prefHeight="36.0" prefWidth="753.0" spacing="10.0">
+         <children>
+            <Label text="     Size    " />
+            <TextField fx:id="sizeField" promptText="Default: 12" />
+            <Button fx:id="setSizeButton" mnemonicParsing="false" onAction="#setSizePressed" text="Set Size" />
+            <ColorPicker fx:id="colorPick" onAction="#colorSelected" prefHeight="25.0" prefWidth="95.0" />
+            <RadioButton fx:id="fillSelected" disable="true" mnemonicParsing="false" onAction="#selectedFill" selected="true" text="Fill" />
+            <RadioButton fx:id="strokeSelected" mnemonicParsing="false" onAction="#selectedStroke" text="Stroke" />
+            <Label text="Current Mode: " />
+            <Label fx:id="modeString" text="Brush" />
+         </children>
+      </HBox>
+      <VBox layoutX="14.0" layoutY="69.0" prefHeight="347.0" prefWidth="41.0" spacing="10.0">
+         <children>
+            <Button fx:id="brushButton" mnemonicParsing="false" onAction="#selectedBrush" prefHeight="31.0" prefWidth="6.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/brush.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="bucketButton" mnemonicParsing="false" onAction="#selectedBucket" prefHeight="31.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/paint-bucket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="pencilButton" layoutX="10.0" layoutY="51.0" mnemonicParsing="false" onAction="#selectedPencil" prefHeight="31.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="eraserButton" mnemonicParsing="false" onAction="#selectedEraser" prefHeight="31.0" prefWidth="6.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/eraser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="recButton" mnemonicParsing="false" onAction="#selectedRec" prefHeight="31.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/rectangle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="circleButton" mnemonicParsing="false" onAction="#selectedCircle" prefHeight="31.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/circle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="starButton" mnemonicParsing="false" onAction="#selectedStar" prefHeight="31.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/star.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="selectionButton" mnemonicParsing="false" onAction="#selectedSelection" prefHeight="31.0">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/selection.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Canvas fx:id="canvas" height="629.0" layoutX="61.0" layoutY="69.0" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" onMouseReleased="#setOnMouseReleased" width="1138.0" />
+   </children>
+</AnchorPane>
